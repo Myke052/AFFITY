@@ -4,9 +4,23 @@ import styles from './login.module.css'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import LoginForm from '../../Components/logInForm'
+import { useEffect } from 'react'
+import { client } from '@/Supabase/client'
 
 export default function Login() {
   const router = useRouter()
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data } = await client.auth.getUser()
+
+      if (data.user) {
+        router.push('/')
+      }
+    }
+
+    checkUser()
+  }, [router])
 
   const handleLoginSuccess = () => {
     router.push('/')
@@ -21,6 +35,7 @@ export default function Login() {
           width={390}
           height={121}
           layout="intrinsic"
+          priority
         />
       </div>
       <main className={styles.cuadro}>
