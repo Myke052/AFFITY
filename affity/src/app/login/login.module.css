@@ -1,0 +1,97 @@
+/* Estilo de la imagen */
+
+.logo {
+  width: 200px;
+  height: 62px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en una nueva fila */
+  justify-content: space-between; /* Espaciado uniforme entre los elementos */
+  align-items: flex-start; /* Alinear elementos al principio */
+  position: relative;
+}
+/* Estilos del título */
+
+.leftDown {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 484px;
+  max-height: 282px;
+  min-width: 50px;
+  min-height: 50px;
+  overflow: hidden;
+}
+
+.leftTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 479px;
+  height: 433px;
+  overflow: hidden;
+}
+
+.rightDown {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 495px;
+  height: 437px;
+  overflow: hidden;
+}
+
+.rightTop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 452px;
+  height: 289px;
+  overflow: hidden;
+}
+
+.leftTop,
+.leftDown {
+  animation: slideInLeft 1.5s ease-out; /* Aplica la animación */
+}
+
+.rightTop,
+.rightDown {
+  animation: slideInFromRight 1.5s ease-out; /* Aplica la animación */
+}
+
+@media (max-width: 1200px) {
+  /* Ajusta el tamaño mínimo deseado */
+  .leftTop,
+  .rightTop,
+  .rightDown,
+  .leftDown {
+    display: none;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(
+      -100%
+    ); /* Empieza fuera de la vista por la izquierda */
+    opacity: 0; /* Empieza invisible */
+    overflow: hidden;
+  }
+  to {
+    transform: translateX(0); /* Llega a su posición original */
+    opacity: 1; /* Se vuelve visible */
+    overflow: hidden;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%); /* Inicia fuera de la pantalla, a la derecha */
+    opacity: 0; /* Empieza invisible */
+  }
+  to {
+    transform: translateX(0); /* Llega a su posición original */
+    opacity: 1; /* Se vuelve visible */
+  }
+}
