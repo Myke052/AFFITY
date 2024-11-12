@@ -11,15 +11,18 @@ export default function Login() {
   const router = useRouter()
 
   useEffect(() => {
-    const checkUser = async () => {
-      const { data } = await client.auth.getUser()
-
-      if (data.user) {
+    // Suscripción al estado de autenticación
+    const {
+      data: { subscription },
+    } = client.auth.onAuthStateChange((event, session) => {
+      if (session?.user) {
         router.push('/')
       }
-    }
+    })
 
-    checkUser()
+    return () => {
+      subscription?.unsubscribe()
+    }
   }, [router])
 
   const handleLoginSuccess = () => {

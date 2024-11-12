@@ -1,38 +1,32 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { client } from '@/Supabase/client'
 
 export default function Home() {
   const router = useRouter()
 
   useEffect(() => {
-    if (!client.auth.getUser()) {
-      router.push('/login')
-    }
-  }, [router])
+    const checkSession = async () => {
+      // Verificamos la sesión al cargar
+      const {
+        data: { session },
+      } = await client.auth.getSession()
 
-  useEffect(() => {
-    // Suscripción al estado de autenticación
-    const { data } = client.auth.onAuthStateChange((event, session) => {
       if (!session) {
-        router.push('/login')
+        // Si no hay sesión, redirigimos a login
+        router.replace('/login')
       } else {
-        router.push('/')
+        // Si hay sesión, redirigimos a la página principal
+        router.replace('/')
       }
-    })
-
-    // Limpieza del listener al desmontar el componente
-    return () => {
-      data?.subscription.unsubscribe() // Accediendo a subscription a través de data
+      // Después de la verificación, dejamos de mostrar el loading
     }
+
+    checkSession()
   }, [router])
 
-  return (
-    <>
-      hello world
-      <button onClick={() => client.auth.signOut()}> Salir</button>
-    </>
-  )
+  // Si ya no estamos en loading, podemos mostrar el contenido de la página.
+  return null
 }
