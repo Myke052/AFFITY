@@ -15,14 +15,19 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
   async function logIn(e: React.FormEvent) {
     e.preventDefault()
 
-    const { error } = await client.auth.signInWithPassword({
+    const { data, error } = await client.auth.signInWithPassword({
       email,
       password,
     })
 
     if (error) {
       console.error(error)
-    } else {
+    }
+    if (data.session) {
+      setTimeout(() => {
+        client.auth.signOut()
+      }, 3600000)
+
       onLoginSuccess()
     }
   }

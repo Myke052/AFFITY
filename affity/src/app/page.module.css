@@ -1,0 +1,305 @@
+/* Estilo para el logo en la esquina superior derecha */
+.logo {
+  position: absolute; /* Para posicionarlo de forma absoluta */
+  top: 10px;
+  right: 10px;
+  z-index: 100; /* Asegura que el logo esté encima de otros elementos */
+}
+
+.firstVar {
+  display: flex;
+  align-items: first baseline;
+  justify-content: space-between;
+  width: 90%;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.firstVar:nth-child(3) {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+/* Estilo para el contenedor principal */
+.section {
+  display: flex;
+  justify-content: center; /* Centra los elementos en el eje horizontal */
+  align-items: center; /* Centra los elementos en el eje vertical */
+  height: 10vh; /* Ocupa todo el alto de la ventana */
+}
+
+/* Estilo para la imagen de la foto en el centro */
+.section img {
+  width: 60%; /* Controla el tamaño de la imagen */
+  max-width: 500px; /* Controla el tamaño máximo */
+  height: auto; /* Mantiene la relación de aspecto */
+  border-radius: 8px; /* Si deseas bordes redondeados */
+  margin-right: auto;
+}
+
+/* Estilo para el div con 75% de ancho y largo */
+.quarer {
+  width: 90%;
+  height: auto;
+  background-color: #f5f5f5; /* Fondo de respaldo */ /* Espaciado superior */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr;
+  border-radius: 10px; /* Bordes redondeados */
+  position: relative; /* Necesario para que ::before funcione */
+  overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+  border: 1px solid #ccc; /* Borde de 1px sólido */
+}
+
+.tableContainer {
+  z-index: 3;
+  padding: 15px;
+}
+
+.quarer::before {
+  display: grid;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/Images/backFirst.png');
+  background-color: #d9d9d9;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* 20% de opacidad */ /* Envía el fondo detrás del contenido */
+}
+
+.myCustomers {
+  z-index: 1;
+  display: flex;
+  margin: 15px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 287px;
+  height: 41.26px;
+  background-color: rgba(255, 255, 255, 0.56);
+  font-family: var(--fuentes-principales);
+  color: 070807;
+  font-weight: bold;
+  font-size: 28.26px;
+  border-radius: 13.75px;
+}
+
+.texClients {
+  z-index: 2;
+}
+
+.imgMyCustomers {
+  margin-left: 4.52px;
+}
+
+.searchVar {
+  border: none;
+  font-size: 21.86px;
+  outline: none; /* Elimina el contorno al hacer foco */
+  transition: all 0.3s ease; /* Suaviza los cambios */
+  appearance: none;
+  -webkit-appearance: none; /* Elimina la X en Safari */
+  -moz-appearance: textfield; /* Elimina la X en Firefox */
+}
+.searchVar:focus {
+  border: none; /* Elimina el borde cuando se hace foco */
+  outline: none; /* Elimina el contorno (el borde resaltado por defecto) */
+}
+
+.searchVar::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.contentVar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 41px;
+  padding-left: 15px;
+  padding-right: 5px;
+  border-radius: 13.75px;
+  opacity: 0.9;
+  background-color: #ffffff;
+  border: #070807 1px solid;
+  font-family: var(--fuentes-principales);
+}
+
+.btnSearch {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btnSearch:hover {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.contentCreateClient {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.btnCreateClient {
+  display: flex;
+  align-items: center;
+  background-color: #96c142;
+  color: #070807;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 41px;
+  border-radius: 13.75px;
+  opacity: 0.9;
+  font-size: 21.86px;
+  font-family: var(--fuentes-principales);
+}
+
+.btnCreateClient:hover {
+  background-color: #b2c78a;
+}
+
+@media (max-width: 820px) {
+  .section {
+    display: none;
+  }
+  .imgAffity {
+    display: none;
+  }
+  .firstVar {
+    justify-content: center;
+    align-items: center;
+  }
+  .btnCreateClient {
+    font-size: 0%;
+  }
+  .contentVar {
+    width: 100%;
+    align-items: center;
+  }
+  .searchVar {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 530px) {
+  .searchVar {
+    font-size: 0%;
+  }
+  .section {
+    display: none;
+  }
+  .imgAffity {
+    display: none;
+  }
+}
+
+.imgCreateClient {
+  margin-right: 10px;
+}
+
+.centerContainer {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  height: 100%;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.complete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.complete:first-child {
+  height: 50%;
+}
+
+.complete:last-child {
+  height: 50%;
+}
+
+.btnLogOut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 40px; /* Asegura una altura consistente */
+  border-radius: 10px;
+  border: none;
+  background-color: #96c142; /* Azul inicial */
+  color: #070807; /* Texto blanco para contraste */
+  font-size: 16px; /* Tamaño de fuente legible */
+  font-weight: bold; /* Hace el texto más destacado */
+  cursor: pointer; /* Cambia el cursor al pasar */
+  transition: all 0.3s ease; /* Suaviza los efectos al interactuar */
+  font-family: var(--fuentes-principales);
+}
+
+/* Hover: Efecto al pasar el ratón */
+.btnLogOut:hover {
+  background-color: #b2c78a; /* Azul más oscuro */
+  border-color: #567dcc; /* Combina el borde con el fondo */
+  transform: scale(1.05); /* Agranda ligeramente el botón */
+}
+
+/* Active: Efecto al hacer clic */
+.btnLogOut:active {
+  background-color: #345a99; /* Azul aún más oscuro */
+  transform: scale(0.95); /* Da sensación de presión */
+}
+
+.imgSearch {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.imgLogOut {
+  align-items: center;
+  justify-content: center;
+}
+
+.conteinerActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  justify-items: center;
+}
+
+.btnActions {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btnActions img {
+  filter: grayscale(100%) brightness(50%); /* Aplica la escala de grises y reduce el brillo */
+}
+
+.btnActions:hover {
+  transform: scale(0.95);
+}

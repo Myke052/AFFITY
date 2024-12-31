@@ -1,0 +1,314 @@
+.createHeader {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+  height: 30%;
+  place-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.contentCamera {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.contentAffity {
+  align-self: flex-end;
+}
+
+.contentCreateClient {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  width: 100%;
+  align-self: last baseline;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contentText {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100px;
+  align-self: flex-start;
+  font-family: var(--fuentes-principales);
+}
+
+.textClient {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.textNuevo {
+  color: rgba(0, 0, 0, 0.57);
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+}
+
+.createMain {
+  display: grid;
+  height: 70%;
+  width: 90%;
+  background-color: rgba(150, 194, 66, 0.3);
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.createMain > * {
+  margin: 10px; /* Ajusta el margen según tus necesidades */
+}
+.footer {
+  display: flex;
+  width: 80%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 7px;
+}
+
+.footer button {
+  width: 152px;
+  height: 46px;
+  border-radius: 13.75px;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  color: #000000;
+  font-size: 20px;
+  font-family: var(--fuentes-principales);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btnSave {
+  background-color: #2196f3;
+}
+
+.btnCancel {
+  background-color: #bdbdbd;
+}
+
+.footer button:hover {
+  transform: scale(0.95);
+}
+
+.imgMyInformation {
+  opacity: 0.56;
+  margin-top: 0px;
+}
+
+.information {
+  z-index: 1;
+  display: flex;
+  margin: 15px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 241px;
+  height: 41px;
+  background-color: rgba(255, 255, 255, 0.56);
+  font-family: var(--fuentes-principales);
+  color: 070807;
+  font-weight: bold;
+  font-size: 28.26px;
+  border-radius: 13.75px;
+}
+
+.texInformation {
+  font-weight: normal;
+}
+
+.labels {
+  width: 150px;
+  height: 19px;
+  font-weight: 600;
+  display: flex;
+}
+
+.inputs {
+  width: 296px;
+  height: 46px;
+  padding-left: 15px;
+  background-color: #ffffff;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.inputsContainer {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  max-width: 1600px;
+  height: auto;
+  align-content: center;
+  align-items: baseline;
+  font-family: var(--fuentes-principales);
+  font-size: 15px;
+  overflow: hidden;
+  column-gap: 200px;
+}
+
+.inputsContainerAditional {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  align-content: center;
+  max-width: 1600px;
+  height: auto;
+  align-items: baseline;
+  font-family: var(--fuentes-principales);
+  font-size: 15px;
+  row-gap: 35px;
+  grid-auto-rows: none;
+}
+
+.textAreaObservations {
+  grid-column: 1;
+  grid-row: 3;
+}
+.textAreaObject {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.inputsContainer input {
+  margin-bottom: 56px;
+}
+
+.inputs::-webkit-inner-spin-button,
+.inputs::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputs {
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+.inputs::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+/* .inputs:nth-of-type(4) {
+  background-image: url('/Images/phone.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 20px 20px; 
+} */
+
+.containerImg {
+  display: grid;
+  align-content: center;
+  align-items: stretch;
+  grid-template-columns: 47px 1fr;
+  row-gap: 0px;
+}
+
+.containerImg div {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.containerImg input {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 249px;
+  height: 44px;
+  border-radius: 0px 5px 5px 0px;
+  margin: 0px;
+}
+
+.containers {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background-color: #d9d9d9;
+  width: 47px;
+  height: 44px;
+  flex-wrap: wrap;
+}
+
+.inputsAditional {
+  width: 191px;
+  height: 46px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  border: 1px solid #b7b7b7;
+  background-color: #e7e7e7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.inputsAditional::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.bloodTypeInput {
+  width: 124px;
+}
+
+.payInput {
+  width: 124px;
+}
+
+.labelsBigs {
+  width: 250px;
+  height: 19px;
+  font-weight: 600;
+  display: flex;
+}
+
+.textAreas {
+  resize: none;
+  width: 600px;
+  height: 116px;
+  overflow: auto;
+}
+
+.form {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 1100px) {
+  .inputsContainer {
+    column-gap: 100px;
+  }
+
+  .inputsContainer {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+.ancho {
+  display: inline-block;
+  width: 61px;
+}
+
+.containerBloody {
+  margin-left: 130px;
+  width: 100%;
+}
+
+.containerPay {
+  margin-left: 100px;
+  width: 100px;
+}
+
+.otherStyle {
+  margin-left: 150px;
+}
+
+.containerNameEmergency {
+  width: 100%;
+  grid-column: 4;
+}
