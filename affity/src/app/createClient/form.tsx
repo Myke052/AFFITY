@@ -1,10 +1,22 @@
 import styles from './createClient.module.css'
 import Image from 'next/image'
+import { Dispatch, SetStateAction } from 'react'
+import { FormData } from './types'
 
-export default function Form() {
+export default function Form({
+  setFormData,
+  formData,
+}: {
+  setFormData: Dispatch<SetStateAction<FormData>>
+  formData: FormData
+}) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
   return (
     <>
-      <form className={styles.form}>
+      <main className={styles.form}>
         <aside className={styles.inputsContainer}>
           <div>
             <label
@@ -16,10 +28,13 @@ export default function Form() {
             <input
               className={styles.inputs}
               id="numericInput"
-              type="number"
+              type="text"
               placeholder="1008674821"
               required
               step="any"
+              name="Cedula"
+              value={formData.Cedula}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -33,6 +48,9 @@ export default function Form() {
               placeholder="Juan Carlos"
               required
               step="any"
+              name="Nombres"
+              value={formData.Nombres}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -46,6 +64,9 @@ export default function Form() {
               placeholder="García Estrada"
               required
               step="any"
+              name="Apellidos"
+              value={formData.Apellidos}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.containerImg}>
@@ -69,6 +90,9 @@ export default function Form() {
               placeholder="3152431778"
               maxLength={10}
               pattern="[0-9]{10}"
+              name="Telefono"
+              value={formData.Telefono}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.containerImg}>
@@ -86,11 +110,14 @@ export default function Form() {
             </div>
 
             <input
-              className={styles.inputs}
+              className={`${styles.inputs} ${styles.inputEmail}`}
               id="emailInput"
               type="email"
               placeholder="AffityTeam@gmail.com"
               step="any"
+              name="Correo electronico"
+              value={formData['Correo electronico']}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -105,10 +132,13 @@ export default function Form() {
               min="0"
               required
               step="any"
+              name="Precio mensualidad"
+              value={formData['Precio mensualidad']}
+              onChange={handleChange}
             />
           </div>
         </aside>
-      </form>
+      </main>
     </>
   )
 }
