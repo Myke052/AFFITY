@@ -4,11 +4,13 @@ import styles from './login.module.css'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import LoginForm from '../../Components/logInForm'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { client } from '@/Supabase/client'
 
 export default function Login() {
   const router = useRouter()
+
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   useEffect(() => {
     // Suscripción al estado de autenticación
@@ -29,6 +31,10 @@ export default function Login() {
     router.push('/')
   }
 
+  const handleLoginError = (message: string) => {
+    setErrorMessage(message)
+  }
+
   return (
     <>
       <div className={styles.logo}>
@@ -42,7 +48,11 @@ export default function Login() {
         />
       </div>
       <main className={styles.cuadro}>
-        <LoginForm onLoginSuccess={handleLoginSuccess} />
+        {errorMessage && <></>}
+        <LoginForm
+          onLoginSuccess={handleLoginSuccess}
+          onError={handleLoginError}
+        />
       </main>
       <div className={styles.containerLeft}>
         <div className={styles.leftTop}>

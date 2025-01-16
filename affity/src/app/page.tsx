@@ -6,7 +6,17 @@ import { client } from '@/Supabase/client'
 import styles from './page.module.css'
 import CustomTable from '@/app/Table'
 import { TableContainer } from '@mui/material'
+import { useEffect, useState } from 'react'
 
+type client = {
+  Cedula: string
+  Nombres: string
+  Apellidos: string
+  Telefono: string
+  'Correo electronico': string
+  State: 'Activo'
+  Actions: string
+}
 export default function Home() {
   const router = useRouter()
 
@@ -23,6 +33,43 @@ export default function Home() {
     router.push('/createClient')
   }
 
+  const [clients, setClients] = useState<client[]>([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchClients = async () => {
+    try {
+      setLoading(true)
+      const { data, error } = await client
+        .from('Users')
+        .select('Cedula, Nombres, Apellidos, Telefono, "Correo electronico"')
+      if (error) throw error
+      setClients(
+        (data || []).map((client) => ({
+          ...client,
+          State: 'Activo',
+          Actions: '',
+        }))
+      )
+    } catch (error) {
+      console.error('Error fetching clients:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchClients()
+  }, [])
+
+  if (loading) {
+    return (
+      <div
+        style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}
+      >
+        <p>Cargando datos...</p>
+      </div>
+    )
+  }
   return (
     <>
       <section className={styles.complete}>
@@ -100,7 +147,7 @@ export default function Home() {
             />
           </div>
           <TableContainer className={styles.tableContainer}>
-            <CustomTable />
+            <CustomTable rows={clients} />
           </TableContainer>
         </div>
       </section>

@@ -11,23 +11,26 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.2.1",
-    "@supabase/supabase-js": "^2.46.1",
+    "@hookform/resolvers": "3.10.0",
+    "@mui/material": "6.2.1",
+    "@supabase/supabase-js": "2.46.1",
     "next": "15.0.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-hook-form": "^7.54.2",
+    "yup": "1.6.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/node": "20",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "eslint": "8",
     "eslint-config-next": "15.0.2",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "js-cookie": "^3.0.5",
-    "prettier": "^3.3.3",
-    "typescript": "^5"
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "js-cookie": "3.0.5",
+    "prettier": "3.3.3",
+    "typescript": "5"
   }
 }

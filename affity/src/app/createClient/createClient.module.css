@@ -151,7 +151,7 @@
   font-family: var(--fuentes-principales);
   font-size: 15px;
   overflow: hidden;
-  column-gap: 200px;
+  column-gap: 100px;
 }
 
 .inputsContainerAditional {
@@ -291,8 +291,8 @@
 }
 
 .ancho {
-  display: inline-block;
-  width: 61px;
+  display: flex;
+  width: 100px;
 }
 
 .containerBloody {
@@ -309,7 +309,7 @@
   margin-left: 150px;
 }
 
-.inputEmail{
+.inputEmail {
   font-size: 13px;
 }
 .containerNameEmergency {

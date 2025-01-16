@@ -12,6 +12,10 @@ import { client } from '../../Supabase/client'
 export default function CreateClient() {
   const router = useRouter()
 
+  const handleChangePage = () => {
+    router.back()
+  }
+
   const today = new Date()
   const startDate = new Date(today) // Mantén la fecha de inicio como un objeto Date
   const endDate = new Date(today.setDate(today.getDate() + 30))
@@ -44,10 +48,6 @@ export default function CreateClient() {
     }
   )
 
-  const handleChangePage = () => {
-    router.back()
-  }
-
   const [submittedData, setSubmittedData] = useState<
     (FormData & FormDataAditional) | null
   >(null)
@@ -68,15 +68,15 @@ export default function CreateClient() {
         alert('La cedula ya existe')
         return
       }
-      const { data, error } = await client.from('Users').insert([completeData])
+      const { error } = await client.from('Users').insert([completeData])
 
       if (error) {
         console.error('Error al guardar los datos:', error.message)
         alert('Hubo un error al guardar los datos. Intenta nuevamente.')
       } else {
-        console.log('Datos guardados con éxito:', data)
         setSubmittedData(completeData)
         alert('¡Datos guardados correctamente!')
+        router.replace('/')
       }
     } catch (err) {
       console.error('Error inesperado:', err)
@@ -130,7 +130,7 @@ export default function CreateClient() {
             height={34}
           />
         </div>
-        <form onSubmit={handleSave}>
+        <form id="createClientForm" onSubmit={handleSave}>
           <Form setFormData={setFormDataBasic} formData={formDataBasic}></Form>
           <div className={styles.information} style={{ width: '345px' }}>
             <span className={styles.texInformation}>Información adicional</span>
@@ -146,17 +146,24 @@ export default function CreateClient() {
             setFormData={setFormDataAditional}
             formData={formDataAditional}
           ></FormAditional>
-          <footer className={styles.footer}>
-            <button type="submit" className={styles.btnSave}>
-              Guardar
-            </button>{' '}
-            {/* Ahora este botón tiene el tipo submit */}
-            <button className={styles.btnCancel} onClick={handleChangePage}>
-              Cancelar
-            </button>
-          </footer>
         </form>
       </main>
+      <footer className={styles.footer}>
+        <button
+          className={styles.btnSave}
+          onClick={() => {
+            const form = document.getElementById(
+              'createClientForm'
+            ) as HTMLFormElement
+            if (form) form.requestSubmit()
+          }}
+        >
+          Guardar
+        </button>
+        <button className={styles.btnCancel} onClick={handleChangePage}>
+          Cancelar
+        </button>
+      </footer>
 
       {submittedData && (
         <div className={styles.jsonDisplay}>
