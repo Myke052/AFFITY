@@ -57,7 +57,7 @@ export default function Login() {
       <div className={styles.containerLeft}>
         <div className={styles.leftTop}>
           <Image
-            src="/assets/leftTop.svg"
+            src="/Assets/leftTop.svg"
             alt="Left Top"
             width={479}
             height={433}
@@ -65,7 +65,7 @@ export default function Login() {
         </div>
         <div className={styles.leftDown}>
           <Image
-            src="/assets/leftDown.svg"
+            src="/Assets/leftDown.svg"
             alt="Left Down"
             width={484}
             height={282}
@@ -75,7 +75,7 @@ export default function Login() {
       <div className={styles.containerRight}>
         <div className={styles.rightDown}>
           <Image
-            src="/assets/rightDown.svg"
+            src="/Assets/rightDown.svg"
             alt="right Down"
             width={495}
             height={437}
@@ -83,7 +83,7 @@ export default function Login() {
         </div>
         <div className={styles.rightTop}>
           <Image
-            src="/assets/rightTop.svg"
+            src="/Assets/rightTop.svg"
             alt="right Top"
             width={452}
             height={289}

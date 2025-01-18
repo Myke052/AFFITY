@@ -48,11 +48,11 @@ export default function ResetUpdate() {
         .setSession({ access_token: accessToken, refresh_token: '' })
         .then(() => {
           setLoading(false)
-          // Configurar temporizador para cerrar sesión después de 20 segundos
           const timer = setTimeout(() => {
             client.auth.signOut()
             router.replace('/login')
           }, 20000)
+
           return () => clearTimeout(timer)
         })
         .catch(() => {
